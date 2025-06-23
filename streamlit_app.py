@@ -5,7 +5,7 @@ import os
 
 st.set_page_config(page_title="NeuroStrike Dashboard", layout="wide")
 
-st.title(" NeuroStrike: Neuromorphic Attack Simulation")
+st.title("  Neuromorphic Attack Simulation")
 st.markdown("Visualize SNN Behavior + Power Leakage Side-Channel Attack")
 
 # Dropdown to select mode
@@ -51,11 +51,13 @@ if os.path.exists(power_array_path):
     st.sidebar.text(f"Avg Power Level: {avg_power:.2f}")
 
     # ⚠Detection threshold (tune as you like)
-    if avg_power > 20:
-        st.sidebar.error(" Abnormal Power Detected! Possible Attack")
+    if mode == "Power Attack" and avg_power > 50:
+        st.sidebar.error("Abnormal Power Detected! Possible Attack")
+    elif mode == "Normal" and avg_power <= 50:
+        st.sidebar.success("Power Levels Normal")
     else:
-        st.sidebar.success(" Power Levels Normal")
+        st.sidebar.warning("Unusual: No specific condition matched")
 
 # Footer
 st.markdown("---")
-st.markdown("Made with  Brian2 +  Streamlit | [GitHub](https://github.com/YOURUSERNAME/neurostrike)")
+st.markdown("Made with  Brian2 [GitHub](https://github.com/YutiNaha16")
