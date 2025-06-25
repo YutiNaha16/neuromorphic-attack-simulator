@@ -2,7 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-# Make sure assets folder exists
 os.makedirs("assets", exist_ok=True)
 
 # Load spike data from normal mode
@@ -29,5 +28,4 @@ plt.tight_layout()
 plt.savefig("assets/power_leak_normal.png")
 plt.show()
 
-# Save for use in Streamlit later
 np.save("assets/power_leak_normal.npy", power_leak)
